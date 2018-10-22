@@ -8,18 +8,6 @@ import { Map as map } from 'immutable';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-// function logger({ getState, dispatch}) {
-//   return (next) => {
-//     return (action) => {
-//       console.log('este es mi viejo estado', getState().toJS())
-//       console.log('vamos a enviar está acción', action);
-//       const value = next(action)
-//       console.log('este es mi nuevo estado', getState().toJS())
-//       return value
-//     }
-//   }
-// }
-
 
 const logger_ = ({getState, dispatch }) => next => action => {
   console.log('este es mi viejo estado', getState().toJS())
