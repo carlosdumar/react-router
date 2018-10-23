@@ -9,6 +9,8 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import { BrowserRouter } from 'react-router-dom';
+
 const logger_ = ({getState, dispatch }) => next => action => {
   console.log('este es mi viejo estado', getState().toJS())
   console.log('vamos a enviar está acción', action);
@@ -33,8 +35,12 @@ const homeContainer = document.getElementById('home-container')
 
 
 render(
-  <Provider store={store}>
-    <Home />
-  </Provider>
+  <BrowserRouter
+    basename="/videos"
+  >
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  </BrowserRouter>
 , homeContainer);
 
