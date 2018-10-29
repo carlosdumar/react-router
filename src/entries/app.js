@@ -43,7 +43,12 @@ render(
       <Fragment>
         <Header />
         <Route exact path="/" component={Home} />     
-        <Route exact path="/videos" component={Videos} />    
+        <Route exact path="/videos" component={Videos} />
+        <Route>
+          <div>
+            <h1>404 Not Found!</h1>
+          </div>
+        </Route>    
       </Fragment>
     </Provider>
   </BrowserRouter>
