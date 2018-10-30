@@ -10,9 +10,10 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from '../pages/components/header';
+import NotFound from '../pages/components/not-found';
 
 const logger_ = ({getState, dispatch }) => next => action => {
   console.log('este es mi viejo estado', getState().toJS())
@@ -42,13 +43,12 @@ render(
     <Provider store={store}>
       <Fragment>
         <Header />
-        <Route exact path="/" component={Home} />     
-        <Route exact path="/videos" component={Videos} />
-        <Route>
-          <div>
-            <h1>404 Not Found!</h1>
-          </div>
-        </Route>    
+        <Switch>
+          <Route exact path="/" component={Home} />     
+          <Route exact path="/videos" component={Videos} />
+          <Redirect from="/v" to="/videos" />
+          <Route component={NotFound} /> 
+        </Switch>
       </Fragment>
     </Provider>
   </BrowserRouter>
