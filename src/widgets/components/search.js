@@ -8,7 +8,7 @@ const Search = (props) => (
     onSubmit={props.handleSubmit}
   >
     <Prompt
-      when
+      when={props.prompt}
       message="Estas seguro que quieres dejar la pagina?"
     >
 
